@@ -10,10 +10,18 @@ Important:
 * Models are evaluated on dev.zip
 * Trained using Nvidia GTX 1080Ti 11GB
 
+## For training from scratch use 
+```
+./tools/train_net_dla.py
+```
+
 
 
 ## Mask-RCNN resnext101_32x8d backbone
-Config file: ./configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml  
+Config file: 
+```
+./configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml
+```  
 Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
 
 <img src="assets/images/resnext101_32x8d/result_resnext101_32x8d.JPG" > 
@@ -21,7 +29,10 @@ Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDA
 
 
 ## Mask-RCNN resnet101 backbone  
-Config file: ./configs/DLA_mask_rcnn_R_101_FPN_3x.yaml  
+Config file: 
+```
+./configs/DLA_mask_rcnn_R_101_FPN_3x.yaml
+```    
 Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
 
 <img src="assets/images/resnet101/result_resnet101.JPG" >
