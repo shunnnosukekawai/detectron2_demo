@@ -16,7 +16,7 @@ Important:
 Config file: ./configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml  
 Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
 
-<img src="assets/images/result_resnext101_32x8d.JPG" > 
+<img src="assets/images/resnext101_32x8d/result_resnext101_32x8d.JPG" > 
 
 
 
@@ -24,7 +24,15 @@ Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDA
 Config file: ./configs/DLA_mask_rcnn_R_101_FPN_3x.yaml  
 Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
 
-<img src="assets/images/result_resnet101.JPG" >
+<img src="assets/images/resnet101/result_resnet101.JPG" >
+
+---
+
+## Sample results from detectron2
+
+<img src="assets/images/resnet101/PMC1247189_00000.jpg" >  
+
+<img src="assets/images/resnet101/PMC2778503_00000.jpg" >  
 
 
  
