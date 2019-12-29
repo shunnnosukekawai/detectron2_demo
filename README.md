@@ -24,6 +24,7 @@ Config file:
 ```  
 Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
 
+### Inference on validation data  
 <img src="assets/images/resnext101_32x8d/result_resnext101_32x8d.JPG" > 
 
 
@@ -35,6 +36,7 @@ Config file:
 ```    
 Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
 
+### Inference on validation data  
 <img src="assets/images/resnet101/result_resnet101.JPG" >
 
 ---
