@@ -24,6 +24,13 @@ Config file:
 ```  
 Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
 
+> To continue training the model use model_final.pth  
+> To predict on image or fine tune use model_final_trimmed.pth
+
+```
+python demo/demo.py --config-file configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml --input "<path to image.jpg>" --output <path to save the predicted image> --confidence-threshold 0.5 --opts MODEL.WEIGHTS <path to model_final_trimmed.pth> MODEL.DEVICE cpu
+```
+
 ### Inference on validation data  
 <img src="assets/images/resnext101_32x8d/result_resnext101_32x8d.JPG" > 
 
