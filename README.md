@@ -50,9 +50,13 @@ Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDA
 
 ## Sample results from detectron2
 
-<img src="assets/images/resnet101/PMC1247189_00000.jpg" >  
+<img src="assets/images/resnext101_32x8d/PMC1247189_00000.jpg" >  
 
-<img src="assets/images/resnet101/PMC2778503_00000.jpg" >  
+<img src="assets/images/resnext101_32x8d/PMC1247608_00001.jpg" >  
+
+<img src="assets/images/resnext101_32x8d/PMC1281292_00001.jpg" >  
+
+<img src="assets/images/resnext101_32x8d/PMC2778503_00000.jpg" >  
 
 
  
