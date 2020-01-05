@@ -2,22 +2,24 @@
 
 ---
 
-# This repo contains the training configuration, code and trained model for [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) dataset  
+# This repo contains the training configurations, code and trained models trained on [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) dataset  using [Detectron2](https://github.com/facebookresearch/detectron2) implementation.
+[PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) is a very large dataset for document layout analysis (document segmentation). It can be used to trained semantic segmentation/Object detection models.
 
 Important:
 * Models are trained on a portion of the dataset (train-0.zip, train-1.zip, train-2.zip, train-3.zip)
-* Trained on total 191832 images
-* Models are evaluated on dev.zip
+* Trained on total 191,832 images
+* Models are evaluated on dev.zip (~11,000 images)
+* Backbone pretrained on COCO dataset is used but trained from scratch on PubLayNet dataset
 * Trained using Nvidia GTX 1080Ti 11GB
 
-## For training from scratch use 
+## For training from scratch  
 ```
 ./tools/train_net_dla.py
 ```
 
 
 
-## Mask-RCNN resnext101_32x8d backbone
+## Mask-RCNN with resnext101_32x8d backbone
 Config file: 
 ```
 ./configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml
@@ -36,7 +38,7 @@ python demo/demo.py --config-file configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml 
 
 
 
-## Mask-RCNN resnet101 backbone  
+## Mask-RCNN with resnet101 backbone  
 Config file: 
 ```
 ./configs/DLA_mask_rcnn_R_101_FPN_3x.yaml
