@@ -53,25 +53,33 @@ Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDA
 ## Sample results from detectron2
 
 <img src="assets/images/resnext101_32x8d/PMC1247189_00000.jpg" >  
+
 ---  
 <img src="assets/images/resnext101_32x8d/PMC1247608_00001.jpg" >  
+
 ---  
 <img src="assets/images/resnext101_32x8d/PMC1281292_00001.jpg" >  
+
 ---  
 <img src="assets/images/resnext101_32x8d/PMC1343590_00003.jpg" >  
+
 ---  
 <img src="assets/images/resnext101_32x8d/PMC2778503_00000.jpg" >  
+
 ---  
 <img src="assets/images/resnext101_32x8d/PMC6052416_00007.jpg" >  
+
 ---  
 <img src="assets/images/resnext101_32x8d/PMC6095069_00001.jpg" >  
+
 ---  
 <img src="assets/images/resnext101_32x8d/PMC6095088_00000.jpg" >  
+
 ---  
 <img src="assets/images/resnext101_32x8d/PMC6098231_00004.jpg" >  
+
 --- 
 
----
 
 Detectron2 is Facebook AI Research's next generation software system
 that implements state-of-the-art object detection algorithms.
