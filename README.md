@@ -12,45 +12,60 @@ Important:
 * Backbone pretrained on COCO dataset is used but trained from scratch on PubLayNet dataset
 * Trained using Nvidia GTX 1080Ti 11GB
 
-## For training from scratch  
+
+## 1. To get predictions on a single image  
+Add the below code in demo/demo.py to get confidence along with label names
+```
+from detectron2.data import MetadataCatalog
+MetadataCatalog.get("dla_val").thing_classes = ['text', 'title', 'list', 'table', 'figure']
+```
+
+Then run below command for prediction
+```
+python demo/demo.py --config-file configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml --input "<path to image.jpg>" --output <path to save the predicted image> --confidence-threshold 0.5 --opts MODEL.WEIGHTS <path to model_final_trimmed.pth> MODEL.DEVICE cpu
+```
+
+## 2. Trained model download --> https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
+
+
+## 3. For training from scratch  
 ```
 ./tools/train_net_dla.py
 ```
 
 
 
-## Mask-RCNN with resnext101_32x8d backbone
+### 3.1 Mask-RCNN with resnext101_32x8d backbone
 Config file: 
 ```
 ./configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml
 ```  
 Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
 
-> To continue training the model use model_final.pth  
-> To predict on image or fine tune use model_final_trimmed.pth
 
-```
-python demo/demo.py --config-file configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml --input "<path to image.jpg>" --output <path to save the predicted image> --confidence-threshold 0.5 --opts MODEL.WEIGHTS <path to model_final_trimmed.pth> MODEL.DEVICE cpu
-```
-
-### Inference on validation data  
+### 3.1.1 Inference on validation data  
 <img src="assets/images/resnext101_32x8d/result_resnext101_32x8d.JPG" > 
 
 
 
-## Mask-RCNN with resnet101 backbone  
+### 3.2 Mask-RCNN with resnet101 backbone  
 Config file: 
 ```
 ./configs/DLA_mask_rcnn_R_101_FPN_3x.yaml
 ```    
 Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
 
-### Inference on validation data  
+### 3.2.1 Inference on validation data  
 <img src="assets/images/resnet101/result_resnet101.JPG" >
 
 ---
 
-## Sample results from detectron2
+
+
+
+---
+
+## 4. Sample results from detectron2
 
 <img src="assets/images/resnext101_32x8d/PMC1247189_00000.jpg" >  
 
