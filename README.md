@@ -48,7 +48,7 @@ Then run below command for prediction on single image
 python demo/demo.py --config-file configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml --input "<path to image.jpg>" --output <path to save the predicted image> --confidence-threshold 0.5 --opts MODEL.WEIGHTS <path to model_final_trimmed.pth> MODEL.DEVICE cpu
 ```
 
-<details><summary>TODOs ⏰</summary><p>
+## TODOs ⏰
 
 - [ ] Train MaskRCNN resnet50  
 
