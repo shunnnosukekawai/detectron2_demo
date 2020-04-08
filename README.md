@@ -2,70 +2,60 @@
 
 ---
 
-# This repo contains the training configurations, code and trained models trained on [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) dataset  using [Detectron2](https://github.com/facebookresearch/detectron2) implementation.
+## Detectron2 trained on [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) dataset
+
+This repo contains the training configurations, code and trained models trained on [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) dataset  using [Detectron2](https://github.com/facebookresearch/detectron2) implementation.  
 [PubLayNet](https://github.com/ibm-aur-nlp/PubLayNet) is a very large dataset for document layout analysis (document segmentation). It can be used to trained semantic segmentation/Object detection models.
 
-Important:
+NOTE  
 * Models are trained on a portion of the dataset (train-0.zip, train-1.zip, train-2.zip, train-3.zip)
 * Trained on total 191,832 images
 * Models are evaluated on dev.zip (~11,000 images)
 * Backbone pretrained on COCO dataset is used but trained from scratch on PubLayNet dataset
 * Trained using Nvidia GTX 1080Ti 11GB
+* Trained on Windows 10
 
 
-## 1. To get predictions on a single image  
+## Benchmarking  
+
+| Architecture                                                                                                  | No. images | AP     | AP50   | AP75   | AP Small | AP Medium | AP Large | Model size trimmed | Model size full |
+|---------------------------------------------------------------------------------------------------------------|------------|--------|--------|--------|----------|-----------|----------|--------------------|-----------------|
+| [MaskRCNN Resnext101_32x8d FPN 3X](https://www.dropbox.com/sh/1098ym6vhad4zi6/AABe16eSdY_34KGp52W0ruwha?dl=0) | 191,832    | 90.574 | 97.704 | 95.555 | 39.904   | 76.350    | 95.165   | 816M               | 410M            |
+| [MaskRCNN Resnet101 FPN 3X](https://www.dropbox.com/sh/wgt9skz67usliei/AAD9n6qbsyMz1Y3CwpZpHXCpa?dl=0)        | 191,832    | 90.335 | 96.900 | 94.609 | 36.588   | 73.672    | 94.533   |                    | 480M            |
+|                                                                                                               |            |        |        |        |          |           |          |                    |                 |
+
+
+
+## Configuration used for training   
+
+| Architecture                                                                                                  | Config file                                   | Training Script          |
+|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------|--------------------------|
+| [MaskRCNN Resnext101_32x8d FPN 3X](https://www.dropbox.com/sh/1098ym6vhad4zi6/AABe16eSdY_34KGp52W0ruwha?dl=0) | configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml | ./tools/train_net_dla.py |
+| [MaskRCNN Resnet101 FPN 3X](https://www.dropbox.com/sh/wgt9skz67usliei/AAD9n6qbsyMz1Y3CwpZpHXCpa?dl=0)        | configs/DLA_mask_rcnn_R_101_FPN_3x.yaml       | ./tools/train_net_dla.py |
+
+
+
+## Some helper code and cli commands  
+
 Add the below code in demo/demo.py to get confidence along with label names
 ```
 from detectron2.data import MetadataCatalog
 MetadataCatalog.get("dla_val").thing_classes = ['text', 'title', 'list', 'table', 'figure']
 ```
 
-Then run below command for prediction
+Then run below command for prediction on single image
 ```
 python demo/demo.py --config-file configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml --input "<path to image.jpg>" --output <path to save the predicted image> --confidence-threshold 0.5 --opts MODEL.WEIGHTS <path to model_final_trimmed.pth> MODEL.DEVICE cpu
 ```
 
-## 2. Trained model download --> https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
+<details><summary>TODOs ⏰</summary><p>
 
-
-## 3. For training from scratch  
-```
-./tools/train_net_dla.py
-```
-
-
-
-### 3.1 Mask-RCNN with resnext101_32x8d backbone
-Config file: 
-```
-./configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml
-```  
-Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
-
-
-### 3.1.1 Inference on validation data  
-<img src="assets/images/resnext101_32x8d/result_resnext101_32x8d.JPG" > 
-
-
-
-### 3.2 Mask-RCNN with resnet101 backbone  
-Config file: 
-```
-./configs/DLA_mask_rcnn_R_101_FPN_3x.yaml
-```    
-Trained model: https://www.dropbox.com/sh/jxuxu2oh4f8ogms/AADaG0U2hXORh_kd8NazDAgsa?dl=0
-
-### 3.2.1 Inference on validation data  
-<img src="assets/images/resnet101/result_resnet101.JPG" >
-
----
-
-
+- [ ] Train MaskRCNN resnet50  
 
 
 ---
 
-## 4. Sample results from detectron2
+## Sample results from detectron2
 
 <img src="assets/images/resnext101_32x8d/PMC1247189_00000.jpg" >  
 
