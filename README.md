@@ -57,31 +57,12 @@ python demo/demo.py --config-file configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml 
 
 ## Sample results from detectron2
 
-<img src="assets/images/resnext101_32x8d/PMC1247189_00000.jpg" >  
-
----  
-<img src="assets/images/resnext101_32x8d/PMC1247608_00001.jpg" >  
-
----  
-<img src="assets/images/resnext101_32x8d/PMC1281292_00001.jpg" >  
-
----  
-<img src="assets/images/resnext101_32x8d/PMC1343590_00003.jpg" >  
-
----  
-<img src="assets/images/resnext101_32x8d/PMC2778503_00000.jpg" >  
-
----  
-<img src="assets/images/resnext101_32x8d/PMC6052416_00007.jpg" >  
-
----  
-<img src="assets/images/resnext101_32x8d/PMC6095069_00001.jpg" >  
-
----  
-<img src="assets/images/resnext101_32x8d/PMC6095088_00000.jpg" >  
-
----  
-<img src="assets/images/resnext101_32x8d/PMC6098231_00004.jpg" >  
+| <img src="assets/images/resnext101_32x8d/PMC1247189_00000.jpg" width=400> | <img src="assets/images/resnext101_32x8d/PMC1247608_00001.jpg" width=400> |
+|---------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| <img src="assets/images/resnext101_32x8d/PMC1281292_00001.jpg" width=400> | <img src="assets/images/resnext101_32x8d/PMC1343590_00003.jpg" width=400> |
+| <img src="assets/images/resnext101_32x8d/PMC2778503_00000.jpg" width=400> | <img src="assets/images/resnext101_32x8d/PMC6052416_00007.jpg" width=400> |
+| <img src="assets/images/resnext101_32x8d/PMC6095069_00001.jpg" width=400> | <img src="assets/images/resnext101_32x8d/PMC6095088_00000.jpg" width=400> |
+| <img src="assets/images/resnext101_32x8d/PMC6098231_00004.jpg" width=400> |                                                                           |
 
 --- 
 
