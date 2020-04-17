@@ -13,6 +13,11 @@ from detectron2.utils.logger import setup_logger
 
 from predictor import VisualizationDemo
 
+####変更箇所####
+from detectron2.data import MetadataCatalog
+MetadataCatalog.get("dla_val").thing_classes = ['text', 'title', 'list', 'table', 'figure']
+####変更箇所####
+
 # constants
 WINDOW_NAME = "COCO detections"
 
@@ -95,6 +100,20 @@ if __name__ == "__main__":
                     assert len(args.input) == 1, "Please specify a directory with args.output"
                     out_filename = args.output
                 visualized_output.save(out_filename)
+
+                ####変更箇所####
+                import json
+                prediction_dict = predictions['instances'].get_fields()
+                for k in prediction_dict:
+                    if(k == 'pred_boxes'):
+                        print('box detected')
+                        prediction_dict[k] = prediction_dict[k].tensor.tolist()
+                    else:
+                        prediction_dict[k] = prediction_dict[k].tolist()
+                f = open('prediction_result.json', 'w')
+                json.dump(prediction_dict, f)
+                ####変更箇所####
+
             else:
                 cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
                 cv2.imshow(WINDOW_NAME, visualized_output.get_image()[:, :, ::-1])
