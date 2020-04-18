@@ -16,6 +16,7 @@ from predictor import VisualizationDemo
 ####変更箇所####
 from detectron2.data import MetadataCatalog
 MetadataCatalog.get("dla_val").thing_classes = ['text', 'title', 'list', 'table', 'figure']
+print(MetadataCatalog.get("dla_val").thing_classes)
 ####変更箇所####
 
 # constants
@@ -104,14 +105,24 @@ if __name__ == "__main__":
                 ####変更箇所####
                 import json
                 prediction_dict = predictions['instances'].get_fields()
+                classes = ['text', 'title', 'list', 'table', 'figure']
+                print(prediction_dict)
+                print(prediction_dict.keys())
+                prediction_result = {}
                 for k in prediction_dict:
                     if(k == 'pred_boxes'):
                         print('box detected')
-                        prediction_dict[k] = prediction_dict[k].tensor.tolist()
-                    else:
-                        prediction_dict[k] = prediction_dict[k].tolist()
+                        prediction_result['detected box areas'] = prediction_dict[k].tensor.tolist()
+                    elif(k == 'scores'):
+                        prediction_result['confidence scores']  = prediction_dict[k].tolist()
+                    elif(k == 'pred_classes'):
+                        categories = []
+                        for i in prediction_dict[k].tolist():
+                            categories.append(classes[i])
+                        print("カテゴリリスト{}".format(categories))
+                        prediction_result['categories'] = categories
                 f = open('prediction_result.json', 'w')
-                json.dump(prediction_dict, f)
+                json.dump(prediction_result, f)
                 ####変更箇所####
 
             else:
