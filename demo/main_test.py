@@ -15,7 +15,6 @@ from predictor import VisualizationDemo
 
 from detectron2.data import MetadataCatalog
 MetadataCatalog.get("dla_val").thing_classes = ['text', 'title', 'list', 'table', 'figure']
-print(MetadataCatalog.get("dla_val").thing_classes)
 # constants
 WINDOW_NAME = "COCO detections"
 
@@ -49,12 +48,10 @@ def cmd(i,o):
     import json
     prediction_dict = predictions['instances'].get_fields()
     classes = ['text', 'title', 'list', 'table', 'figure']
-    print(prediction_dict)
-    print(prediction_dict.keys())
+
     prediction_result = {}
     for k in prediction_dict:
         if(k == 'pred_boxes'):
-            print('box detected')
             prediction_result['detected box areas'] = prediction_dict[k].tensor.tolist()
         elif(k == 'scores'):
             prediction_result['confidence scores']  = prediction_dict[k].tolist()
@@ -62,7 +59,6 @@ def cmd(i,o):
             categories = []
             for i in prediction_dict[k].tolist():
                 categories.append(classes[i])
-            print("カテゴリリスト{}".format(categories))
             prediction_result['categories'] = categories
     f = open('prediction_result.json', 'w')
     json.dump(prediction_result, f)
