@@ -31,12 +31,14 @@ WINDOW_NAME = "COCO detections"
 def setup_cfg(args):
     # load config from file and command-line arguments
     cfg = get_cfg()
-    cfg.merge_from_file(args.config_file)
-    cfg.merge_from_list(args.opts)
+    cfg.merge_from_file('configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml')
+    cfg.merge_from_list(['MODEL.WEIGHTS', './model/model_final_trimmed.pth', 'MODEL.DEVICE', 'cpu'])
+    print('cfbの内容')
+    print(cfg.merge_from_list(args.opts))
     # Set score_threshold for builtin models
-    cfg.MODEL.RETINANET.SCORE_THRESH_TEST = args.confidence_threshold
-    cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = args.confidence_threshold
-    cfg.MODEL.PANOPTIC_FPN.COMBINE.INSTANCES_CONFIDENCE_THRESH = args.confidence_threshold
+    cfg.MODEL.RETINANET.SCORE_THRESH_TEST = 0.5
+    cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5
+    cfg.MODEL.PANOPTIC_FPN.COMBINE.INSTANCES_CONFIDENCE_THRESH = 0.5
     cfg.freeze()
     return cfg
 
@@ -79,11 +81,17 @@ def get_parser():
 if __name__ == "__main__":
     mp.set_start_method("spawn", force=True)
     args = get_parser().parse_args()
+    print('optsの内容')
+    print(args.opts)
+    print('loggerの内容')
     logger = setup_logger()
+    logger
     logger.info("Arguments: " + str(args))
 
     cfg = setup_cfg(args)
-
+    print('cfgの内容')
+    print(cfg)
+    print(type(cfg))
     demo = VisualizationDemo(cfg)
 
     if args.input:
@@ -138,6 +146,7 @@ if __name__ == "__main__":
                 cv2.imshow(WINDOW_NAME, visualized_output.get_image()[:, :, ::-1])
                 if cv2.waitKey(0) == 27:
                     break  # esc to quit
+    """
     elif args.webcam:
         assert args.input is None, "Cannot have both --input and --webcam!"
         cam = cv2.VideoCapture(0)
@@ -185,3 +194,4 @@ if __name__ == "__main__":
             output_file.release()
         else:
             cv2.destroyAllWindows()
+"""
