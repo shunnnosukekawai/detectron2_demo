@@ -23,7 +23,10 @@ def setup_cfg():
     cfg = get_cfg()
     cfg.merge_from_file('configs/DLA_mask_rcnn_X_101_32x8d_FPN_3x.yaml')
     #change the model path
-    cfg.merge_from_list(['MODEL.WEIGHTS', './model/model_final_trimmed.pth', 'MODEL.DEVICE', 'cpu'])
+    path = './model/'
+    files = os.listdir(path)
+    file_path = path + files[1]
+    cfg.merge_from_list(['MODEL.WEIGHTS', file_path, 'MODEL.DEVICE', 'cpu'])
     # Set score_threshold for builtin models
     cfg.MODEL.RETINANET.SCORE_THRESH_TEST = 0.5
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5
