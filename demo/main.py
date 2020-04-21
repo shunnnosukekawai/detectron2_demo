@@ -44,6 +44,7 @@ def cmd(i,o):
     cfg = setup_cfg()
     demo = VisualizationDemo(cfg)
     img = read_image(i, format="BGR")
+    inputimg_shape = cv2.imread(i).shape[:2]
     predictions, visualized_output = demo.run_on_image(img)
     visualized_output.save(o)
 
@@ -53,9 +54,20 @@ def cmd(i,o):
     classes = ['text', 'title', 'list', 'table', 'figure']
 
     prediction_result = {}
+    prediction_result['input_img shape'] = inputimg_shape
     for k in prediction_dict:
         if(k == 'pred_boxes'):
             prediction_result['detected box areas'] = prediction_dict[k].tensor.tolist()
+            big_box = []
+            for i in prediction_dict[k].tensor.tolist():
+                small_box = []
+                for j in range(len(i)):
+                    if((j == 0) or (j == 2)):
+                        small_box.append(i[j]/inputimg_shape[1])
+                    elif((j == 1) or (j == 3)):
+                        small_box.append(i[j]/inputimg_shape[0])
+                big_box.append(small_box)
+            prediction_result['overall ratio of detected boxes'] = big_box
         elif(k == 'scores'):
             prediction_result['confidence scores']  = prediction_dict[k].tolist()
         elif(k == 'pred_classes'):
