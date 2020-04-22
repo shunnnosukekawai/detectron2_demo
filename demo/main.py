@@ -55,26 +55,33 @@ def cmd(i,o):
 
     prediction_result = {}
     prediction_result['input_img shape'] = inputimg_shape
-    for k in prediction_dict:
-        if(k == 'pred_boxes'):
-            prediction_result['detected box areas'] = prediction_dict[k].tensor.tolist()
-            big_box = []
-            for i in prediction_dict[k].tensor.tolist():
-                small_box = []
-                for j in range(len(i)):
-                    if((j == 0) or (j == 2)):
-                        small_box.append(i[j]/inputimg_shape[1])
-                    elif((j == 1) or (j == 3)):
-                        small_box.append(i[j]/inputimg_shape[0])
-                big_box.append(small_box)
-            prediction_result['overall ratio of detected boxes'] = big_box
-        elif(k == 'scores'):
-            prediction_result['confidence scores']  = prediction_dict[k].tolist()
-        elif(k == 'pred_classes'):
-            categories = []
-            for i in prediction_dict[k].tolist():
-                categories.append(classes[i])
-            prediction_result['categories'] = categories
+
+    #make categories list
+    categories = []
+    for i in prediction_dict['pred_classes'].tolist():
+        categories.append(classes[i])
+
+    #make overall ratio list
+    overall_ratio = []
+    for i in prediction_dict['pred_boxes'].tensor.tolist():
+        small_box = []
+        for j in range(len(i)):
+            if((j == 0) or (j == 2)):
+                small_box.append(i[j]/inputimg_shape[1])
+            elif((j == 1) or (j == 3)):
+                small_box.append(i[j]/inputimg_shape[0])
+        overall_ratio.append(small_box)
+
+    detected_boxes_list = []
+    for i in range(len(prediction_dict['pred_boxes'])):
+        detected_bos_and_category = {}
+        detected_bos_and_category['categorie'] = categories[i]
+        detected_bos_and_category['detected box area'] = prediction_dict['pred_boxes'].tensor.tolist()[i]
+        detected_bos_and_category['overall ratio of detected box'] = overall_ratio[i]
+        detected_bos_and_category['confidence score'] = prediction_dict['scores'].tolist()[i]
+        detected_boxes_list.append(detected_bos_and_category)
+
+    prediction_result['detected boxes'] = detected_boxes_list
     f = open('prediction_result.json', 'w')
     json.dump(prediction_result, f)
     print('successed')
