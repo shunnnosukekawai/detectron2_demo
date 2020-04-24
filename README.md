@@ -19,7 +19,7 @@ python demo/main.py -i <input file path> -o <output file path>
 
 * output jsonfile
 
-<img src="output/outputjson_sample.png" width=400>
+<img src="output/outputjson_sample.jpg" width=400>
 
 
 
