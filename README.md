@@ -4,7 +4,6 @@ Detectron2 simple demo
 You can use detectron2 more easily and you can get the output image and jsonfile stores the size of the input image and the information of the detected boxes by storing model in the model directory and using the following command in the detectron2_demo directory.
 ```
 python demo/main.py -i <input file path> -o <output file path>
-
 ```
 ---
 
