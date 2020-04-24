@@ -54,7 +54,7 @@ def cmd(i,o):
     classes = ['text', 'title', 'list', 'table', 'figure']
 
     prediction_result = {}
-    prediction_result['input_img shape'] = inputimg_shape
+    prediction_result['inputImgShape'] = inputimg_shape
 
     #make categories list
     categories = []
@@ -75,13 +75,13 @@ def cmd(i,o):
     detected_boxes_list = []
     for i in range(len(prediction_dict['pred_boxes'])):
         detected_bos_and_category = {}
-        detected_bos_and_category['categorie'] = categories[i]
-        detected_bos_and_category['detected box area'] = prediction_dict['pred_boxes'].tensor.tolist()[i]
-        detected_bos_and_category['overall ratio of detected box'] = overall_ratio[i]
-        detected_bos_and_category['confidence score'] = prediction_dict['scores'].tolist()[i]
+        detected_bos_and_category['category'] = categories[i]
+        detected_bos_and_category['detectedBoxArea'] = prediction_dict['pred_boxes'].tensor.tolist()[i]
+        detected_bos_and_category['overallRatioOfDetectedBox'] = overall_ratio[i]
+        detected_bos_and_category['confidenceScore'] = prediction_dict['scores'].tolist()[i]
         detected_boxes_list.append(detected_bos_and_category)
 
-    prediction_result['detected boxes'] = detected_boxes_list
+    prediction_result['detectedBoxes'] = detected_boxes_list
     f = open('prediction_result.json', 'w')
     json.dump(prediction_result, f)
     print('successed')
