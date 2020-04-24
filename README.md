@@ -1,7 +1,9 @@
 Detectron2 simple demo
 ====
 
-You can use detectron2 more easily and you can get the output image and jsonfile stores the size of the input image and the information of the detected boxes by storing model in the model directory and using the following command in the detectron2_demo directory.
+You can get the output image and jsonfile easily.
+The output jsonfile contains the size of the input image and the information of the detected boxes.
+In addition, you need set a model in the model directory and using the following command in the detectron2_demo directory.
 ```
 python demo/main.py -i <input file path> -o <output file path>
 ```
@@ -48,7 +50,32 @@ set one of these models in the model directory
 ---
 
 ## Requirement
-   see [pyproject.toml](pyproject.toml).
+- Linux or macOS
+- Python ≥ 3.6
+- PyTorch ≥ 1.3
+- [torchvision](https://github.com/pytorch/vision/) that matches the PyTorch installation.
+	You can install them together at [pytorch.org](https://pytorch.org) to make sure of this.
+- OpenCV, needed by demo and visualization
+- pycocotools: `pip install cython; pip install 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'`
+- GCC ≥ 4.9
+
+see [pyproject.toml](pyproject.toml).
+
+### Build and Install Detectron2
+
+After having the above dependencies, run:
+```
+git clone https://github.com/facebookresearch/detectron2.git
+cd detectron2
+pip install -e .
+
+# or if you are on macOS
+# MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ pip install -e .
+
+# or, as an alternative to `pip install`, use
+# python setup.py build develop
+```
+Note: you often need to rebuild detectron2 after reinstalling PyTorch.
 
 ## Licence
 
