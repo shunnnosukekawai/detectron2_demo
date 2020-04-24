@@ -1,9 +1,9 @@
 Detectron2 simple demo
 ====
 
-You can get the output image and jsonfile easily.
-The output jsonfile contains the size of the input image and the information of the detected boxes.
-In addition, you need set a model in the model directory and using the following command in the detectron2_demo directory.
+You can get the resulting image and the output jsonfile easily.
+The jsonfile contains the size of the input image and the information of the detected boxes.
+In addition, you need to set a model in the model directory, and to use the following command in the detectron2_demo directory:
 ```
 python demo/main.py -i <input file path> -o <output file path>
 ```
@@ -39,7 +39,7 @@ python demo/main.py -i <input file path> -o <output file path>
 
 ---
 ## Selectable models  
-set one of these models in the model directory
+set one of these models in the model directory:
 
  | Architecture                                                                                                  | No. images | AP     | AP50   | AP75   | AP Small | AP Medium | AP Large | Model size full | Model size trimmed |
  |---------------------------------------------------------------------------------------------------------------|------------|--------|--------|--------|----------|-----------|----------|--------------------|-----------------|
