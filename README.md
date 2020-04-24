@@ -36,7 +36,7 @@ python demo/main.py -i <input file path> -o <output file path>
      * confidenceScore  : conficence score of detected box
 
 ---
-## Benchmarking  
+## Selectable models  
 set one of these models in the model directory
 
  | Architecture                                                                                                  | No. images | AP     | AP50   | AP75   | AP Small | AP Medium | AP Large | Model size full | Model size trimmed |
