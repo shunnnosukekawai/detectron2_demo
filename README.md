@@ -65,7 +65,7 @@ you can set the following requirements by using the command: `poetry install`
 Activate the virtualenv by using the command:`poetry shell`.　　
 <br>
 Install pycocotools by using this pip command:
-- pycocotools: `pip install cython; pip install 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'`
+- pycocotools: `pip install cython; pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'`
 
 After getting the above depencencies, run:
 - detectron2: `python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'`
