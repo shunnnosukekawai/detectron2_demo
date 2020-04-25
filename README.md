@@ -50,32 +50,18 @@ set one of these models in the model directory:
 ---
 
 ## Requirement
-- Linux or macOS
-- Python ≥ 3.6
-- PyTorch ≥ 1.3
-- [torchvision](https://github.com/pytorch/vision/) that matches the PyTorch installation.
-	You can install them together at [pytorch.org](https://pytorch.org) to make sure of this.
-- OpenCV, needed by demo and visualization
+you can set the following requirements by using [pyproject.toml](pyproject.toml):
+- Python = 3.6
+- PyTorch = 1.4.0
+- OpenCV >=4.2.0.32
+- torchvision >=0.5.0
+- click = 7.1.1
+
+you have to set the following packages by using pip command:
 - pycocotools: `pip install cython; pip install 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'`
-- GCC ≥ 4.9
 
-see [pyproject.toml](pyproject.toml).
-
-### Build and Install Detectron2
-
-After having the above dependencies, run:
-```
-git clone https://github.com/facebookresearch/detectron2.git
-cd detectron2
-pip install -e .
-
-# or if you are on macOS
-# MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ pip install -e .
-
-# or, as an alternative to `pip install`, use
-# python setup.py build develop
-```
-Note: you often need to rebuild detectron2 after reinstalling PyTorch.
+After having the above depencencies, run:
+- detectron2: `python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'`
 
 ## Licence
 
