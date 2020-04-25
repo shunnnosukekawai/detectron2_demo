@@ -1,5 +1,4 @@
 # output dir
-output
 instant_test_output
 inference_test_output
 
@@ -36,7 +35,6 @@ dist/
 # project dirs
 /detectron2/model_zoo/configs
 /datasets
-/models
 
 .DS_Store
 
