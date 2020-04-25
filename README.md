@@ -58,7 +58,7 @@ you can set the following requirements by using the command: `poetry install`
 - torchvision >=0.5.0
 - click = 7.1.1
 
-Activate the virtualenv by using the command:`poetry shell`
+Activate the virtualenv by using the command:`poetry shell`.
 Install pycocotools by using this pip command:
 - pycocotools: `pip install cython; pip install 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'`
 
