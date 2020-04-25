@@ -4,8 +4,6 @@ instant_test_output
 inference_test_output
 
 
-# *.jpg
-*.png
 *.txt
 
 # compilation and distribution
