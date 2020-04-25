@@ -7,7 +7,11 @@ In addition, you need to set a model in the model directory, and to use the foll
 ```
 python demo/main.py -i <input file path> -o <output file path>
 ```
+forked from :
+https://github.com/hpanwar08/detectron2
+
 ---
+
 
 ## Sample results from detectron2
 
@@ -67,6 +71,7 @@ After getting the above depencencies, run:
 - detectron2: `python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'`
 
 After setting the above requirements, you can use this command to get the results:`python demo/main.py -i <input file path> -o <output file path>`
+
 
 ## Licence
 
