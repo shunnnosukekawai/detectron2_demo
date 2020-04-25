@@ -50,18 +50,22 @@ set one of these models in the model directory:
 ---
 
 ## Requirement
-you can set the following requirements by using [pyproject.toml](pyproject.toml):
+you can set the following requirements by using the command: `poetry install`
+
 - Python = 3.6
 - PyTorch = 1.4.0
 - OpenCV >=4.2.0.32
 - torchvision >=0.5.0
 - click = 7.1.1
 
-you have to set the following packages by using pip command:
+Activate the virtualenv by using the command:`poetry shell`
+Install pycocotools by using this pip command:
 - pycocotools: `pip install cython; pip install 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'`
 
-After having the above depencencies, run:
+After getting the above depencencies, run:
 - detectron2: `python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'`
+
+After setting the above requirements, you can use this command to get the results:`python demo/main.py -i <input file path> -o <output file path>`
 
 ## Licence
 
